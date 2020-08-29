@@ -1,0 +1,32 @@
+<div class="col-md-6">
+  <h2 class="text-center">Send Series Date</h2>
+  <br>
+  <form name="form" (ngSubmit)="f.form.valid && createApproximationProperties()" #f="ngForm" novalidate>
+    <div class="custom-file">
+      <label class="custom-file-label" for="seriesDatesFile" #labelElement>Choose series date file</label>
+      <input type="file" class="custom-file-input" (change)='handleFile($event.target.files)'
+             placeholder="SeriesDatesFile" name="seriesDatesFile" [ngClass]="'form-control'" id="seriesDatesFile"
+             accept=".csv,.txt" required>
+      <div *ngIf="maxError" class="text-danger">
+        <div>File size is more then {{maxSize}} bytes</div>
+      </div>
+      <br>
+    </div>
+
+    <div class="form-group">
+      <label for="degree">Degree of polynomial:</label>
+      <input type="number" name="Degree" id="degree" [(ngModel)]="degree" [min]="1" [max]="100"
+             [ngClass]="degreeModel.invalid ? 'form-control is-invalid' : 'form-control'"
+             #degreeModel="ngModel" required appMinNumber="1" appMaxNumber="100">
+      <div *ngIf="degreeModel.invalid" class="text-danger">
+        <div *ngIf="degreeModel.errors.required">Degree is required</div>
+        <div *ngIf="degreeModel.errors.min">Degree mustn't be less than 1</div>
+        <div *ngIf="degreeModel.errors.max">Degree must be no more than 100</div>
+      </div>
+    </div>
+
+    <button class="btn btn-success" [disabled]="isDisableButton">Send</button>
+  </form>
+  <br>
+  <br>
+</div>

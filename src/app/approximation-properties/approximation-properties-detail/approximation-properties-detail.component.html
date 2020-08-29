@@ -1,0 +1,114 @@
+<div style="text-align:center">
+  <br>
+  <h3>Approximation chart:</h3>
+  <canvas [hidden]="!approximationProperties" id="scatterChart"></canvas>
+  <br>
+  <br>
+</div>
+
+<div class="col-md-8" *ngIf="!chosenMethods && approximationProperties">
+  <h3>Properties of your data series:</h3>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Size</td>
+      <td>{{approximationProperties.dataSeriesFileDTO.size}}</td>
+    </tr>
+    <tr>
+      <td>Number of artifacts</td>
+      <td>{{approximationProperties.dataSeriesFileDTO.artefacts.length}}</td>
+    </tr>
+    <tr>
+      <td>Absolute error for polynomial approximation (m = {{degreePolynomial}})</td>
+      <td>{{approximationProperties.dataSeriesFileDTO.errorPolynomial}}</td>
+    </tr>
+    <tr>
+      <td>Absolute error for trigonometric approximation (m = {{degreeTrigonometric}})</td>
+      <td>{{approximationProperties.dataSeriesFileDTO.errorTrigonometric}}</td>
+    </tr>
+    <tr>
+      <td>Periodicity</td>
+      <td>{{approximationProperties.dataSeriesFileDTO.periodicity}}</td>
+    </tr>
+    <tr>
+      <td>Variance</td>
+      <td>{{approximationProperties.dataSeriesFileDTO.variance}}</td>
+    </tr>
+    <tr>
+      <td>Standard deviation</td>
+      <td>{{approximationProperties.dataSeriesFileDTO.standardDeviation}}</td>
+    </tr>
+    <tr>
+      <td>Degree</td>
+      <td>{{approximationProperties.degree}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <br>
+  <button class="btn btn-success" [disabled]="!roles.includes('USER')" (click)="selectMethods()">
+    Choose the approximation method
+  </button>
+  <br>
+  <br>
+</div>
+
+<div class="col-md-6" *ngIf="chosenMethods">
+  <h3>Chosen methods:</h3>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Name methods</th>
+      <th>Degree</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let chosenMethod of chosenMethods">
+      <td>{{chosenMethod.leastSquaresMethodName}}</td>
+      <td>{{chosenMethod.degree}}</td>
+      <td>
+        <button class="btn btn-success" [disabled]=chosenMethod.isUsed (click)="doApproximations(chosenMethod)">
+          Choose
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <br>
+</div>
+
+<div class="col-md-12" *ngIf="chosenMethods">
+  <div *ngFor="let approximationView of approximationViews; let i = index">
+    <h3>{{approximationView.method}} (Absolute error = {{approximationView.absoluteError}}):</h3>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Polynomial coefficients</th>
+        <th>Domain function</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let mathematicalFunctionDTO of approximationView.mathematicalFunctionDTOs">
+        <td>{{coefficientsString(mathematicalFunctionDTO.polynomialDTO.coefficients)}}</td>
+        <td style="width: 12.5%">{{domainString(mathematicalFunctionDTO.domainFunction)}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-info" (click)="download(approximationView.mathematicalFunctionDTOs)">
+      Download
+    </button>
+    <br>
+    <br>
+  </div>
+</div>
+
+<br>
+<br>

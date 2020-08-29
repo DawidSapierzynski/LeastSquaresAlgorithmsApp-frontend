@@ -1,0 +1,87 @@
+<ng-template #create let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title text-center">Create approximation properties</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form name="form" (ngSubmit)="f.form.valid && modal.close(degree)" #f="ngForm" novalidate>
+    <div class="modal-body">
+      <div class="form-group">
+        <label for="degree">Degree of polynomial:</label>
+        <input type="number" name="Degree" id="degree" [(ngModel)]="degree" [min]="1" [max]="100"
+               [ngClass]="degreeModel.invalid ? 'form-control is-invalid' : 'form-control'"
+               #degreeModel="ngModel" required appMinNumber="1" appMaxNumber="100">
+        <div *ngIf="degreeModel.invalid" class="text-danger">
+          <div *ngIf="degreeModel.errors.required">Degree is required</div>
+          <div *ngIf="degreeModel.errors.min">Degree mustn't be less than 1</div>
+          <div *ngIf="degreeModel.errors.max">Degree must be no more than 100</div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-success">Create</button>
+    </div>
+  </form>
+</ng-template>
+
+<ng-template #deleted let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title text-center" id="modal-basic-title">Do you want to delete the selected files?</h4>
+  </div>
+  <div class="modal-body">
+    <a>Deleting will delete related approximation properties.</a>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" aria-label="Close" (click)="modal.dismiss()">Cancel
+    </button>
+    <button type="button" class="btn btn-danger" (click)="modal.close(degree)">Delete</button>
+  </div>
+</ng-template>
+
+
+<div [class]="checkRoles('ADMIN') ? 'col-md-10' : 'col-md-8'">
+  <h3>Data series list:</h3>
+  <table class="table table-striped ">
+    <thead>
+    <tr>
+      <th></th>
+      <th>ID</th>
+      <th *ngIf="checkRoles('ADMIN')">User ID</th>
+      <th>Name</th>
+      <th>Size</th>
+      <th>Periodicity</th>
+      <th>Standard deviation</th>
+      <th>Date sent</th>
+      <th *ngIf="checkRoles('ADMIN')">Deleted</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let dataSeriesFileDTO of dataSeriesFileDTOList">
+      <th>
+        <input *ngIf="!dataSeriesFileDTO.deleted" type="checkbox" name={{dataSeriesFileDTO.id}}
+               (click)="selected(dataSeriesFileDTO)" value=dataSeriesFileDTO.deleted>
+      </th>
+      <td>{{dataSeriesFileDTO.id}}</td>
+      <td *ngIf="checkRoles('ADMIN')">{{dataSeriesFileDTO.userId}}</td>
+      <td>{{dataSeriesFileDTO.name}}</td>
+      <td>{{dataSeriesFileDTO.size}}</td>
+      <td>{{dataSeriesFileDTO.periodicity}}</td>
+      <td>{{dataSeriesFileDTO.standardDeviation}}</td>
+      <td>{{dataSeriesFileDTO.dateSent | date: 'dd-MM-yyyy, HH:mm:ss'}}</td>
+      <td *ngIf="checkRoles('ADMIN')">{{dataSeriesFileDTO.deleted}}</td>
+      <td>
+        <button *ngIf="checkRoles('USER')" class="btn btn-success"
+                (click)="openCreate(create,dataSeriesFileDTO.id)">Create
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-danger" [disabled]="isDisabledButton" (click)="openDelete(deleted)">Delete selected</button>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
