@@ -102,15 +102,6 @@ export class ApproximationPropertiesDetailComponent implements OnInit {
               backgroundColor: 'red',
               borderWidth: 1.5
             }];
-            if (data.dataSeriesFileDTO.artefacts.length > 0) {
-              this.datasets.push({
-                label: 'Artefacts (' + data.dataSeriesFileDTO.artefacts.length + ')',
-                data: data.dataSeriesFileDTO.artefacts,
-                borderColor: 'blue',
-                backgroundColor: 'blue',
-                borderWidth: 1.5
-              });
-            }
             this.scatterChart = ApproximationPropertiesDetailComponent.getChart(this.datasets);
           });
       });
@@ -172,5 +163,4 @@ export class ApproximationPropertiesDetailComponent implements OnInit {
     });
 
   }
-
 }

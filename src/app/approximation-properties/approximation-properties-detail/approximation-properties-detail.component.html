@@ -6,7 +6,7 @@
   <br>
 </div>
 
-<div class="col-md-8" *ngIf="!chosenMethods && approximationProperties">
+<div class="col-md-4" *ngIf="!chosenMethods && approximationProperties">
   <h3>Properties of your data series:</h3>
   <table class="table table-striped">
     <thead>
@@ -19,22 +19,6 @@
     <tr>
       <td>Size</td>
       <td>{{approximationProperties.dataSeriesFileDTO.size}}</td>
-    </tr>
-    <tr>
-      <td>Number of artifacts</td>
-      <td>{{approximationProperties.dataSeriesFileDTO.artefacts.length}}</td>
-    </tr>
-    <tr>
-      <td>Absolute error for polynomial approximation (m = {{degreePolynomial}})</td>
-      <td>{{approximationProperties.dataSeriesFileDTO.errorPolynomial}}</td>
-    </tr>
-    <tr>
-      <td>Absolute error for trigonometric approximation (m = {{degreeTrigonometric}})</td>
-      <td>{{approximationProperties.dataSeriesFileDTO.errorTrigonometric}}</td>
-    </tr>
-    <tr>
-      <td>Periodicity</td>
-      <td>{{approximationProperties.dataSeriesFileDTO.periodicity}}</td>
     </tr>
     <tr>
       <td>Variance</td>
