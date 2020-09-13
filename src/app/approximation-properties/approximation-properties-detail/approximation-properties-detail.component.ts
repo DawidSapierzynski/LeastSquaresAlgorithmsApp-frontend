@@ -37,7 +37,7 @@ export class ApproximationPropertiesDetailComponent implements OnInit {
   chosenMethods: ChosenMethodDTO[];
   approximationViews: ApproximationView[] = [];
   private scatterChart: Chart;
-  private colors: string[] = ['yellow', 'green', 'black'];
+  private colors: string[] = ['yellow', 'green', 'blue', 'black'];
   private nbColor = 0;
   private datasets = [];
 
@@ -122,7 +122,7 @@ export class ApproximationPropertiesDetailComponent implements OnInit {
       data => {
         this.approximationViews.push(new ApproximationView(data.mathematicalFunctionDTOs, chosenMethod.leastSquaresMethod, data.absoluteError));
         this.datasets.push({
-          label: LeastSquaresMethod[chosenMethod.leastSquaresMethod] + '(' + chosenMethod.degree + ')',
+          label: LeastSquaresMethod[chosenMethod.leastSquaresMethod] + ' (' + chosenMethod.degree + ')',
           data: data.points,
           borderColor: this.colors[this.nbColor],
           backgroundColor: this.colors[this.nbColor],
@@ -136,7 +136,7 @@ export class ApproximationPropertiesDetailComponent implements OnInit {
     chosenMethod.isUsed = true;
 
     this.nbColor++;
-    if (this.nbColor > 2) {
+    if (this.nbColor > 3) {
       this.nbColor = 0;
     }
   }
