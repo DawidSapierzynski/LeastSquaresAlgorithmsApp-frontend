@@ -40,7 +40,7 @@
 </ng-template>
 
 
-<div [class]="checkRoles('ADMIN') ? 'col-md-10' : 'col-md-8'">
+<div [class]="checkRoles('ADMIN') ? 'col-md-9' : 'col-md-7'">
   <h3>Data series list:</h3>
   <table class="table table-striped ">
     <thead>
@@ -50,7 +50,6 @@
       <th *ngIf="checkRoles('ADMIN')">User ID</th>
       <th>Name</th>
       <th>Size</th>
-      <th>Periodicity</th>
       <th>Standard deviation</th>
       <th>Date sent</th>
       <th *ngIf="checkRoles('ADMIN')">Deleted</th>
@@ -67,7 +66,6 @@
       <td *ngIf="checkRoles('ADMIN')">{{dataSeriesFileDTO.userId}}</td>
       <td>{{dataSeriesFileDTO.name}}</td>
       <td>{{dataSeriesFileDTO.size}}</td>
-      <td>{{dataSeriesFileDTO.periodicity}}</td>
       <td>{{dataSeriesFileDTO.standardDeviation}}</td>
       <td>{{dataSeriesFileDTO.dateSent | date: 'dd-MM-yyyy, HH:mm:ss'}}</td>
       <td *ngIf="checkRoles('ADMIN')">{{dataSeriesFileDTO.deleted}}</td>
