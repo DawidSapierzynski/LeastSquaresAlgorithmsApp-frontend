@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'AutoApproximationApp-frontend'`, () => {
+  it(`should have as title 'LeastSquaresAlgorithmsApp-frontend'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('AutoApproximationApp-frontend');
+    expect(app.title).toEqual('LeastSquaresAlgorithmsApp-frontend');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('AutoApproximationApp-frontend app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('LeastSquaresAlgorithmsApp-frontend app is running!');
   });
 });
