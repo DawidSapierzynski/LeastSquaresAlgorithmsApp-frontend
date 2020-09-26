@@ -37,18 +37,18 @@
   <br>
   <br>
   <button class="btn btn-success" [disabled]="!roles.includes('USER')" (click)="selectMethods()">
-    Choose the approximation method
+    Choose the algorithms
   </button>
   <br>
   <br>
 </div>
 
 <div class="col-md-6" *ngIf="chosenMethods">
-  <h3>Chosen methods:</h3>
+  <h3>Chosen algorithms:</h3>
   <table class="table table-striped">
     <thead>
     <tr>
-      <th>Name methods</th>
+      <th>Name algorithm</th>
       <th>Degree</th>
       <th></th>
     </tr>

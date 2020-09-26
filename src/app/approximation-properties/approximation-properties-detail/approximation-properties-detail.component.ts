@@ -120,7 +120,8 @@ export class ApproximationPropertiesDetailComponent implements OnInit {
   doApproximations(chosenMethod: ChosenMethodDTO): void {
     this.approximationPropertiesService.doApproximations(chosenMethod, this.approximationProperties.dataSeriesFileDTO.points).subscribe(
       data => {
-        this.approximationViews.push(new ApproximationView(data.mathematicalFunctionDTOs, chosenMethod.leastSquaresMethod, data.absoluteError));
+        this.approximationViews
+          .push(new ApproximationView(data.mathematicalFunctionDTOs, chosenMethod.leastSquaresMethod, data.absoluteError));
         this.datasets.push({
           label: LeastSquaresMethod[chosenMethod.leastSquaresMethod] + ' (' + chosenMethod.degree + ')',
           data: data.points,
@@ -142,14 +143,7 @@ export class ApproximationPropertiesDetailComponent implements OnInit {
   }
 
   coefficientsString(coefficients: number[]): string {
-    let text = '';
-
-    coefficients.forEach((value, index) => {
-        text = text + (`a${index}=${value}, `);
-      }
-    );
-
-    return text;
+    return coefficients.map((value, index) => `a${index}=${value}`).join(', ');
   }
 
   domainString(domain: DomainFunction): string {
