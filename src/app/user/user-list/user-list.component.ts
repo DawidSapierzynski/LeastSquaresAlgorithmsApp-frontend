@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpUserService } from '../../service/user/http-user.service';
-import { UserDTO } from '../../dto/UserDTO';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { TokenStorageService } from '../../service/auth/token-storage.service';
-import { MessageService } from '../../service/message/message.service';
-import { Message, MessageType } from '../../message/Message';
+import {Component, OnInit} from '@angular/core';
+import {HttpUserService} from '../../service/user/http-user.service';
+import {UserDTO} from '../../dto/UserDTO';
+import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {TokenStorageService} from '../../service/auth/token-storage.service';
+import {MessageService} from '../../service/message/message.service';
+import {Message, MessageType} from '../../message/Message';
 
 
 @Component({
@@ -21,10 +21,11 @@ export class UserListComponent implements OnInit {
     private messageService: MessageService
   ) {
   }
+
   public userDTOList: UserDTO[];
+  public isDisabledButton: boolean;
+  public username: string;
   private selectedList: UserDTO[];
-  private isDisabledButton: boolean;
-  private username: string;
 
   private static getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
@@ -43,15 +44,15 @@ export class UserListComponent implements OnInit {
     this.loadUsers();
   }
 
-  private openDelete(deleted) {
-    this.modalService.open(deleted, { ariaLabelledBy: 'Delete-user' }).result.then(() => {
+  public openDelete(deleted) {
+    this.modalService.open(deleted, {ariaLabelledBy: 'Delete-user'}).result.then(() => {
       this.deletedSelected();
     }, (reason) => {
       console.log(`Dismissed ${UserListComponent.getDismissReason(reason)}`);
     });
   }
 
-  private selected(userDTO: UserDTO) {
+  public selected(userDTO: UserDTO) {
     if (this.selectedList.includes(userDTO)) {
       const index = this.selectedList.indexOf(userDTO, 0);
       if (index > -1) {

@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DataSeriesGeneratorComponent } from './data-series-generator.component';
+import {DataSeriesGeneratorComponent} from './data-series-generator.component';
 
 describe('DataSeriesGeneratorComponent', () => {
   let component: DataSeriesGeneratorComponent;
@@ -8,9 +8,9 @@ describe('DataSeriesGeneratorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DataSeriesGeneratorComponent ]
+      declarations: [DataSeriesGeneratorComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

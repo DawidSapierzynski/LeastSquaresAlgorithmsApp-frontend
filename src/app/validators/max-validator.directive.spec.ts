@@ -1,4 +1,4 @@
-import { MaxValidatorDirective } from './max-validator.directive';
+import {MaxValidatorDirective} from './max-validator.directive';
 
 describe('MaxValidatorDirective', () => {
   it('should create an instance', () => {

@@ -1,33 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, NavigationStart, NavigationEnd, Event, NavigationError, NavigationCancel } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Subscription} from 'rxjs';
+import {LoadingService} from '../service/loading/loading.service';
 
 @Component({
   selector: 'app-loading-indicator',
   templateUrl: './loading-indicator.component.html',
   styleUrls: ['./loading-indicator.component.css']
 })
-export class LoadingIndicatorComponent implements OnInit {
-  showLoadingIndicatordBS = new BehaviorSubject<boolean>(false);
-  private showLoadingIndicator = true;
+export class LoadingIndicatorComponent implements OnInit, OnDestroy {
+  public showLoadingIndicator = false;
+  private subscription: Subscription;
 
   constructor(
-    private router: Router
+    private loadingService: LoadingService
   ) {
-
   }
 
   ngOnInit() {
-    this.router.events.subscribe((routerEvent: Event) => {
-      if (routerEvent instanceof NavigationStart) {
-        this.showLoadingIndicator = true;
-      }
-      if (routerEvent instanceof NavigationEnd ||
-        routerEvent instanceof NavigationError ||
-        routerEvent instanceof NavigationCancel) {
-        this.showLoadingIndicator = false;
-      }
+    this.subscription = this.loadingService.getLoadingObservable().subscribe(loading => {
+      this.showLoadingIndicator = loading;
     });
   }
 
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 }

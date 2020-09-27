@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DataSeriesFileListComponent } from './data-series-file-list.component';
+import {DataSeriesFileListComponent} from './data-series-file-list.component';
 
 describe('DataSeriesFileListUserComponent', () => {
   let component: DataSeriesFileListComponent;
@@ -8,9 +8,9 @@ describe('DataSeriesFileListUserComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DataSeriesFileListComponent ]
+      declarations: [DataSeriesFileListComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ApproximationPropertiesDetailComponent } from './approximation-properties-detail.component';
+import {ApproximationPropertiesDetailComponent} from './approximation-properties-detail.component';
 
 describe('ApproximationPropertiesComponent', () => {
   let component: ApproximationPropertiesDetailComponent;
@@ -8,9 +8,9 @@ describe('ApproximationPropertiesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ApproximationPropertiesDetailComponent ]
+      declarations: [ApproximationPropertiesDetailComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

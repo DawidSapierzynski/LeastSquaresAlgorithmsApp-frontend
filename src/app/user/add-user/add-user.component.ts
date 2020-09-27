@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpUserService } from '../../service/user/http-user.service';
-import { RoleUserDTO } from '../../dto/RoleUserDTO';
-import { SignUpForm } from '../../dto/SignUpForm';
-import { AuthService } from '../../service/auth/auth.service';
-import { MessageService } from '../../service/message/message.service';
-import { Message, MessageType } from '../../message/Message';
+import {Component, OnInit} from '@angular/core';
+import {HttpUserService} from '../../service/user/http-user.service';
+import {RoleUserDTO} from '../../dto/RoleUserDTO';
+import {SignUpForm} from '../../dto/SignUpForm';
+import {AuthService} from '../../service/auth/auth.service';
+import {MessageService} from '../../service/message/message.service';
+import {Message, MessageType} from '../../message/Message';
 
 
 @Component({
@@ -13,15 +13,16 @@ import { Message, MessageType } from '../../message/Message';
   styleUrls: ['./add-user.component.css']
 })
 export class AddUserComponent implements OnInit {
-  private roleUserDTOList: RoleUserDTO[];
-  private signUpInfo: SignUpForm;
-  private isDisableButton: boolean;
+  public roleUserDTOList: RoleUserDTO[];
+  public signUpInfo: SignUpForm;
+  public isDisableButton: boolean;
 
   constructor(
     private addUserService: HttpUserService,
     private authService: AuthService,
     private messageService: MessageService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.isDisableButton = false;
@@ -32,7 +33,7 @@ export class AddUserComponent implements OnInit {
     this.signUpInfo = new SignUpForm();
   }
 
-  private selected(roleUserDTO: RoleUserDTO) {
+  public selected(roleUserDTO: RoleUserDTO) {
     if (this.signUpInfo.role.includes(roleUserDTO)) {
       const index = this.signUpInfo.role.indexOf(roleUserDTO, 0);
       if (index > -1) {
@@ -43,7 +44,7 @@ export class AddUserComponent implements OnInit {
     }
   }
 
-  private addUser() {
+  public addUser() {
     this.isDisableButton = true;
     this.authService.addUser(this.signUpInfo).subscribe(
       data => {

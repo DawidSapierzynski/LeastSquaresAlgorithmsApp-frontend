@@ -1,4 +1,4 @@
-import { EqualValidatorDirective } from './equal-validator.directive';
+import {EqualValidatorDirective} from './equal-validator.directive';
 
 describe('EqualValidatorDirective', () => {
   it('should create an instance', () => {

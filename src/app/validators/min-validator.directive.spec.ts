@@ -1,4 +1,4 @@
-import { MinValidatorDirective } from './min-validator.directive';
+import {MinValidatorDirective} from './min-validator.directive';
 
 describe('MinValidatorDirective', () => {
   it('should create an instance', () => {

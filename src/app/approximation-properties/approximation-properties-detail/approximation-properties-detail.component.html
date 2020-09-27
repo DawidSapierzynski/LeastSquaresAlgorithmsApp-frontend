@@ -71,24 +71,25 @@
 
 <div class="col-md-12" *ngIf="chosenMethods">
   <div *ngFor="let approximationView of approximationViews; let i = index">
-    <h3>{{approximationView.method}} (Absolute error = {{approximationView.absoluteError}}):</h3>
+    <h3>{{approximationView.method}} (Absolute error = {{approximationView.absoluteError}})</h3>
     <table class="table table-striped">
       <thead>
       <tr>
-        <th>Polynomial coefficients</th>
-        <th>Domain function</th>
+        <th style="text-align: center">Polynomial coefficients</th>
+        <th style="text-align: center">Domain function</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let mathematicalFunctionDTO of approximationView.mathematicalFunctionDTOs">
         <td>{{coefficientsString(mathematicalFunctionDTO.polynomialDTO.coefficients)}}</td>
-        <td style="width: 12.5%">{{domainString(mathematicalFunctionDTO.domainFunction)}}</td>
+        <td style="width: 12.5%; text-align: center">{{domainString(mathematicalFunctionDTO.domainFunction)}}</td>
       </tr>
       </tbody>
     </table>
     <button class="btn btn-info" (click)="download(approximationView.mathematicalFunctionDTOs)">
       Download
     </button>
+    <br>
     <br>
     <br>
   </div>

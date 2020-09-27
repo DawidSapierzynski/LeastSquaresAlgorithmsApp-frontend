@@ -1,16 +1,17 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { RoleUserDTO } from '../../dto/RoleUserDTO';
-import { UserDTO } from '../../dto/UserDTO';
-import { ResponseMessage } from 'src/app/dto/ResponseMessage';
-import { USER_URL } from '../url.constants';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {RoleUserDTO} from '../../dto/RoleUserDTO';
+import {UserDTO} from '../../dto/UserDTO';
+import {ResponseMessage} from 'src/app/dto/ResponseMessage';
+import {USER_URL} from '../url.constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpUserService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
   public getUserRole() {
     return this.httpClient.get<RoleUserDTO[]>(USER_URL.ROLE);

@@ -1,15 +1,15 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
-import { JwtResponse } from '../../dto/JwtResponse';
-import { AuthLoginInfo } from '../../dto/AuthLoginInfo';
-import { SignUpForm } from '../../dto/SignUpForm';
-import { ResponseMessage } from '../../dto/ResponseMessage';
-import { AUTH_URL } from '../url.constants';
+import {JwtResponse} from '../../dto/JwtResponse';
+import {AuthLoginInfo} from '../../dto/AuthLoginInfo';
+import {SignUpForm} from '../../dto/SignUpForm';
+import {ResponseMessage} from '../../dto/ResponseMessage';
+import {AUTH_URL} from '../url.constants';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
 @Injectable({

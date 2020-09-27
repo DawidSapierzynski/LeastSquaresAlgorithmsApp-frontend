@@ -5,7 +5,7 @@ import {TokenStorageService} from '../service/auth/token-storage.service';
 import {HttpApproximationPropertiesService} from '../service/approximation-properties/http-approximation-properties.service';
 import {Router} from '@angular/router';
 
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {MessageService} from '../service/message/message.service';
 import {Message, MessageType} from '../message/Message';
 

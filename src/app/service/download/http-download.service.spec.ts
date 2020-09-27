@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { HttpDownloadService } from './http-download.service';
+import {HttpDownloadService} from './http-download.service';
 
 describe('DownloadService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

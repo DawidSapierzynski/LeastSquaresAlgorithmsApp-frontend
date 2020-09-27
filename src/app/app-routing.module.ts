@@ -1,14 +1,10 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-import {
-  ApproximationPropertiesDetailComponent
-} from './approximation-properties/approximation-properties-detail/approximation-properties-detail.component';
+import {RouterModule, Routes} from '@angular/router';
+import {ApproximationPropertiesDetailComponent} from './approximation-properties/approximation-properties-detail/approximation-properties-detail.component';
 import {LoginComponent} from './login/login.component';
-import {AuthGuardUser, AuthGuardAdmin, AuthGuard} from './auth/auth.guard';
+import {AuthGuard, AuthGuardAdmin, AuthGuardUser} from './auth/auth.guard';
 import {DataSeriesFileListComponent} from './data-series-file-list/data-series-file-list.component';
-import {
-  ApproximationPropertiesListUserComponent
-} from './approximation-properties/approximation-properties-list/approximation-properties-list.component';
+import {ApproximationPropertiesListUserComponent} from './approximation-properties/approximation-properties-list/approximation-properties-list.component';
 import {AddUserComponent} from './user/add-user/add-user.component';
 import {UserListComponent} from './user/user-list/user-list.component';
 import {UploadFileComponent} from './upload-file/upload-file.component';

@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ApproximationPropertiesDTO } from '../../dto/ApproximationPropertiesDTO';
-import { PointXY } from '../../dto/PointXY';
-import { ChosenMethodDTO } from '../../dto/ChosenMethodDTO';
-import { ApproximationDTO } from '../../dto/ApproximationDTO';
-import { ApproximationForm } from '../../dto/ApproximationForm';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {ApproximationPropertiesDTO} from '../../dto/ApproximationPropertiesDTO';
+import {PointXY} from '../../dto/PointXY';
+import {ChosenMethodDTO} from '../../dto/ChosenMethodDTO';
+import {ApproximationDTO} from '../../dto/ApproximationDTO';
+import {ApproximationForm} from '../../dto/ApproximationForm';
 import {ResponseMessage} from '../../dto/ResponseMessage';
-import { APPROXIMATION_PROPERTIES_URL } from '../url.constants';
+import {APPROXIMATION_PROPERTIES_URL} from '../url.constants';
 
 
 @Injectable({
@@ -15,7 +15,8 @@ import { APPROXIMATION_PROPERTIES_URL } from '../url.constants';
 export class HttpApproximationPropertiesService {
   constructor(
     private httpClient: HttpClient
-  ) { }
+  ) {
+  }
 
   public postApproximationProperties(degree: number, dataSeriesId: number) {
     const uploadData = new FormData();

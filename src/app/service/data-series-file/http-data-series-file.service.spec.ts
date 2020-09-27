@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { HttpDataSeriesFileService } from './http-data-series-file.service';
+import {HttpDataSeriesFileService} from './http-data-series-file.service';
 
 describe('HttpDataSeriesFileService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

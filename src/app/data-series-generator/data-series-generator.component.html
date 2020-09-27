@@ -38,13 +38,13 @@
                  max="1000"
                  step="1"
                  appMinNumber="5"
-                 appMaxNumber="1000"
+                 appMaxNumber="10000"
                  pattern="[0-9]*"
                  required>
           <div *ngIf="f.submitted && numberOfPoints.invalid" class="text-danger">
             <div *ngIf="numberOfPoints.errors.required">Number of points in the series is required</div>
             <div *ngIf="numberOfPoints.errors.min">Number of points mustn't be less than 5</div>
-            <div *ngIf="numberOfPoints.errors.max">Number of points must be no more than 1000</div>
+            <div *ngIf="numberOfPoints.errors.max">Number of points must be no more than 10000</div>
           </div>
         </div>
         <div class="form-group custom-control custom-checkbox">

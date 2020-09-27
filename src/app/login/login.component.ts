@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-import { AuthService } from '../service/auth/auth.service';
-import { TokenStorageService } from '../service/auth/token-storage.service';
-import { AuthLoginInfo } from '../dto/AuthLoginInfo';
-import { Router} from '@angular/router';
+import {AuthService} from '../service/auth/auth.service';
+import {TokenStorageService} from '../service/auth/token-storage.service';
+import {AuthLoginInfo} from '../dto/AuthLoginInfo';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +11,7 @@ import { Router} from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  private form: any = {};
+  public form: any = {};
   private isLoggedIn = false;
   private isLoginFailed = false;
   private loginInfo: AuthLoginInfo;
@@ -20,7 +20,8 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private tokenStorage: TokenStorageService,
     private router: Router
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     const token = this.tokenStorage.getToken();
@@ -29,7 +30,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  private onSubmit() {
+  public onSubmit() {
     this.loginInfo = new AuthLoginInfo(
       this.form.username,
       this.form.password);

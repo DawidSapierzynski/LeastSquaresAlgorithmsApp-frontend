@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ApproximationPropertiesDTO} from '../../dto/ApproximationPropertiesDTO';
 import {HttpApproximationPropertiesService} from '../../service/approximation-properties/http-approximation-properties.service';
 import {TokenStorageService} from '../../service/auth/token-storage.service';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {MessageService} from '../../service/message/message.service';
 import {Message, MessageType} from '../../message/Message';
 
@@ -22,9 +22,9 @@ export class ApproximationPropertiesListUserComponent implements OnInit {
   }
 
   private roles: string[];
-  private approximationPropertiesDTOList: ApproximationPropertiesDTO[];
   private selectedList: ApproximationPropertiesDTO[];
-  private isDisabledButton: boolean;
+  public approximationPropertiesDTOList: ApproximationPropertiesDTO[];
+  public isDisabledButton: boolean;
 
   private static getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
@@ -40,15 +40,14 @@ export class ApproximationPropertiesListUserComponent implements OnInit {
     this.tokenStorage.rolesObservable.subscribe(r => {
       this.roles = r;
     });
-
     this.loadApproximationProperties();
   }
 
-  private checkRoles(role: string) {
+  public checkRoles(role: string) {
     return this.roles.includes(role);
   }
 
-  private openDelete(deleted) {
+  public openDelete(deleted) {
     this.modalService.open(deleted, {ariaLabelledBy: 'Delete-approximation-properties'}).result.then(() => {
       this.deletedSelected();
     }, (reason) => {
@@ -56,7 +55,7 @@ export class ApproximationPropertiesListUserComponent implements OnInit {
     });
   }
 
-  private selected(approximationPropertiesDTO: ApproximationPropertiesDTO) {
+  public selected(approximationPropertiesDTO: ApproximationPropertiesDTO) {
     if (this.selectedList.includes(approximationPropertiesDTO)) {
       const index = this.selectedList.indexOf(approximationPropertiesDTO, 0);
       if (index > -1) {

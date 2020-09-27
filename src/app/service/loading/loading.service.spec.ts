@@ -1,12 +1,12 @@
 import {TestBed} from '@angular/core/testing';
 
-import {HttpUserService} from './http-user.service';
+import {LoadingService} from './loading.service';
 
-describe('AddUserService', () => {
+describe('LoadingService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: HttpUserService = TestBed.get(HttpUserService);
+    const service: LoadingService = TestBed.get(LoadingService);
     expect(service).toBeTruthy();
   });
 });

@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ApproximationPropertiesListUserComponent } from './approximation-properties-list.component';
+import {ApproximationPropertiesListUserComponent} from './approximation-properties-list.component';
 
 describe('ApproximationPropertiesListUserComponent', () => {
   let component: ApproximationPropertiesListUserComponent;
@@ -8,9 +8,9 @@ describe('ApproximationPropertiesListUserComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ApproximationPropertiesListUserComponent ]
+      declarations: [ApproximationPropertiesListUserComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
