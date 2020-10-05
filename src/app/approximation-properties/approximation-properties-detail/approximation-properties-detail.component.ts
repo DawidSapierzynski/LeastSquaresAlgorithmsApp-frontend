@@ -32,8 +32,6 @@ export class ApproximationPropertiesDetailComponent implements OnInit {
 
   roles: string[];
   approximationProperties: ApproximationPropertiesDTO;
-  degreePolynomial: number;
-  degreeTrigonometric: number;
   chosenMethods: ChosenMethodDTO[];
   approximationViews: ApproximationView[] = [];
   private scatterChart: Chart;
@@ -71,18 +69,6 @@ export class ApproximationPropertiesDetailComponent implements OnInit {
     });
   }
 
-  private static calculateDegreeTrigonometric(size: number): number {
-    const d = Math.ceil(Math.log(Math.pow(size, 3)));
-    const max = Math.floor((size - 1) / 2);
-    return d > max ? max : d;
-  }
-
-  private static calculateDegreePolynomial(size: number): number {
-    const d = Math.ceil(Math.log(Math.pow(size, 3)));
-    const max = size - 1;
-    return d > max ? max : d;
-  }
-
   ngOnInit() {
     this.tokenStorage.rolesObservable.subscribe(r => {
       this.roles = r;
@@ -92,8 +78,6 @@ export class ApproximationPropertiesDetailComponent implements OnInit {
         this.approximationPropertiesService.getApproximationProperties(queryparams.id).subscribe(
           data => {
             this.approximationProperties = data;
-            this.degreePolynomial = ApproximationPropertiesDetailComponent.calculateDegreePolynomial(data.dataSeriesFileDTO.size);
-            this.degreeTrigonometric = ApproximationPropertiesDetailComponent.calculateDegreeTrigonometric(data.dataSeriesFileDTO.size);
             this.chosenMethods = undefined;
             this.datasets = [{
               label: 'Points (' + data.dataSeriesFileDTO.points.length + ')',
