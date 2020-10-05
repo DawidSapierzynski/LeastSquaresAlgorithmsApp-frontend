@@ -29,19 +29,32 @@
 
       <div class="col text-right">
         <div *ngIf="!isLogged">
-          <button [routerLink]="['/login']" class="btn btn-secondary">Login</button>
+          <button [routerLink]="['/login']" class="btn btn-secondary">
+            <img src="/assets/icons/box-arrow-in-right.svg" alt="" width="20em" height="20em"
+                 title="Login">
+            <span>Login</span>
+          </button>
         </div>
         <div ngbDropdown class="d-inline-block" *ngIf="isLogged">
-          <button class="btn btn-secondary" id="profile" ngbDropdownToggle>
-            {{username}}
+          <button class="btn btn-secondary center" id="profile" ngbDropdownToggle>
+            <img src="/assets/icons/person-fill.svg" alt="" width="20em" height="20em"
+                 title="Username">
+            <span>{{username}}</span>
           </button>
           <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownBasic2">
-            <button [routerLink]="['/user-detail', userId]" ngbDropdownItem> My profile</button>
-            <button (click)="logout()" ngbDropdownItem>Logout</button>
+            <button [routerLink]="['/user-detail', userId]" ngbDropdownItem class="center">
+              <img src="/assets/icons/person.svg" alt="" width="20em" height="20em"
+                   title="My profile">
+              <span>My profile</span>
+            </button>
+            <button (click)="logout()" ngbDropdownItem class="center">
+              <img src="/assets/icons/box-arrow-right.svg" alt="" width="20em" height="20em"
+                   title="Logout">
+              <span>Logout</span>
+            </button>
           </div>
         </div>
       </div>
-
     </div>
   </nav>
 </header>

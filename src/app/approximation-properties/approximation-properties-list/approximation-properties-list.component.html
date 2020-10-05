@@ -7,7 +7,11 @@
     <button type="button" class="btn btn-primary" aria-label="Close"
             (click)="modal.dismiss()">Cancel
     </button>
-    <button type="button" class="btn btn-danger" (click)="modal.close()">Delete</button>
+    <button type="button" class="btn btn-danger center" (click)="modal.close()">
+      <img src="/assets/icons/trash-fill.svg" alt="" width="20em" height="20em"
+           title="Delete">
+      <span>Delete</span>
+    </button>
   </div>
 </ng-template>
 
@@ -47,7 +51,11 @@
     </tr>
     </tbody>
   </table>
-  <button class="btn btn-danger" [disabled]="isDisabledButton" (click)="openDelete(deleted)">Delete selected</button>
+  <button class="btn btn-danger center" [disabled]="isDisabledButton" (click)="openDelete(deleted)">
+    <img src="/assets/icons/trash-fill.svg" alt="" width="20em" height="20em"
+         title="Delete selected">
+    <span>Delete selected</span>
+  </button>
   <br>
   <br>
   <br>

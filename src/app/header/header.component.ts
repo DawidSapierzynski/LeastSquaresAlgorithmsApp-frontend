@@ -8,10 +8,10 @@ import {TokenStorageService} from '../service/auth/token-storage.service';
 })
 export class HeaderComponent implements OnInit {
 
-  private roles: string[];
-  private isLogged: boolean;
-  private username: string;
-  private userId: string;
+  roles: string[];
+  isLogged: boolean;
+  username: string;
+  userId: string;
 
   constructor(
     private tokenStorage: TokenStorageService
@@ -37,7 +37,7 @@ export class HeaderComponent implements OnInit {
 
   }
 
-  private logout() {
+  logout() {
     this.tokenStorage.signOut();
   }
 
