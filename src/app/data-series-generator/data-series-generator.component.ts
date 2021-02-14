@@ -66,14 +66,6 @@ export class DataSeriesGeneratorComponent implements OnInit {
 
   getDegree(): number {
     const size = this.generateDataSeriesForm.mathematicalFunctionDTO.polynomialDTO.coefficients.length;
-    if (this.generateDataSeriesForm.trigonometricPolynomial) {
-      if (size % 2 === 0) {
-        return size / 2;
-      } else {
-        return (size - 1) / 2;
-      }
-    } else {
-      return size - 1;
-    }
+    return size - 1;
   }
 }

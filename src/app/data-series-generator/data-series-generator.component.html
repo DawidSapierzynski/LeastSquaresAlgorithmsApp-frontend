@@ -3,7 +3,7 @@
   <br>
   <form name="form" (ngSubmit)="f.form.valid && generateDataSeries()" #f="ngForm" novalidate>
     <div class="form-row">
-      <div class="col-md-4">
+      <div class="col-md-2">
         <div class="form-group">
           <label for="numberOfCoefficients">Number of coefficients:</label>
           <input type="number"
@@ -26,6 +26,9 @@
             <div *ngIf="numberOfCoefficients.errors.max">Number of coefficients must be no more than 100</div>
           </div>
         </div>
+      </div>
+
+      <div class="col-md-2">
         <div class="form-group">
           <label for="numberPoints">Number of points in the series:</label>
           <input type="number"
@@ -47,18 +50,9 @@
             <div *ngIf="numberOfPoints.errors.max">Number of points must be no more than 10000</div>
           </div>
         </div>
-        <div class="form-group custom-control custom-checkbox">
-          <input type="checkbox"
-                 class="custom-control-input"
-                 name="isTrigonometricPolynomial"
-                 id="isTrigonometricPolynomial"
-                 [checked]="generateDataSeriesForm.trigonometricPolynomial"
-                 [(ngModel)]="generateDataSeriesForm.trigonometricPolynomial">
-          <label for="isTrigonometricPolynomial" class="custom-control-label">Trigonometric polynomial</label>
-        </div>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-2">
         <div class="form-group">
           <label for="beginningInterval">Beginning of the range:</label>
           <input type="number"
@@ -76,6 +70,9 @@
             <div *ngIf="beginningInterval.errors.equal">The beginning of the range cannot equal the end</div>
           </div>
         </div>
+      </div>
+
+      <div class="col-md-2">
         <div class="form-group">
           <label for="endInterval">End of the range:</label>
           <input type="number"
@@ -94,7 +91,26 @@
           </div>
         </div>
       </div>
+
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="weightDistribution">Distribution of point weights:</label>
+          <select name="weightDistribution"
+                  id="weightDistribution"
+                  [ngClass]="f.submitted && weightDistribution.invalid ? 'form-control is-invalid' : 'form-control'"
+                  [(ngModel)]="generateDataSeriesForm.weightDistribution"
+                  #weightDistribution="ngModel"
+                  required>
+            <option value="none">None</option>
+            <option value="normal">Normal</option>
+          </select>
+          <div *ngIf="f.submitted && weightDistribution.invalid" class="text-danger">
+            <div *ngIf="weightDistribution.errors.required">Distribution of point weights is required</div>
+          </div>
+        </div>
+      </div>
     </div>
+
 
     <div class="form-group col-md-4" *ngIf="generateDataSeriesForm.mathematicalFunctionDTO.polynomialDTO.coefficients">
       <label>Coefficients:</label>
@@ -108,7 +124,7 @@
         <tbody>
         <tr
           *ngFor="let coefficient of generateDataSeriesForm.mathematicalFunctionDTO.polynomialDTO.coefficients; index as i; trackBy:indexTracker">
-          <td>a{{i}}</td>
+          <td>a<sub>{{i}}</sub></td>
           <td>
             <input type="number"
                    [name]="'coefficient'+i"
