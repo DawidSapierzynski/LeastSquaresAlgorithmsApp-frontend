@@ -109,6 +109,24 @@
           </div>
         </div>
       </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="distanceX">Distance between the X coordinates:</label>
+          <select name="distanceX"
+                  id="distanceX"
+                  [ngClass]="f.submitted && distanceX.invalid ? 'form-control is-invalid' : 'form-control'"
+                  [(ngModel)]="generateDataSeriesForm.distanceX"
+                  #distanceX="ngModel"
+                  required>
+            <option value="equidistant">Equidistant</option>
+            <option value="normal">Normal</option>
+          </select>
+          <div *ngIf="f.submitted && distanceX.invalid" class="text-danger">
+            <div *ngIf="distanceX.errors.required">Distance between the X coordinates is required</div>
+          </div>
+        </div>
+      </div>
     </div>
 
 
