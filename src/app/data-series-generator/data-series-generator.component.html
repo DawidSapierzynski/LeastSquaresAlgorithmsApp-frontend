@@ -121,6 +121,7 @@
                   required>
             <option value="equidistant">Equidistant</option>
             <option value="normal">Normal</option>
+            <option value="chebyshev">Chebyshev</option>
           </select>
           <div *ngIf="f.submitted && distanceX.invalid" class="text-danger">
             <div *ngIf="distanceX.errors.required">Distance between the X coordinates is required</div>
