@@ -102,6 +102,11 @@ export class ApproximationPropertiesDetailComponent implements OnInit {
   }
 
   doApproximations(chosenMethod: ChosenMethodDTO): void {
+    if (this.nbColor >= 3) {
+      this.nbColor = 0;
+    } else {
+      this.nbColor++;
+    }
     this.approximationPropertiesService.doApproximations(chosenMethod, this.approximationProperties.dataSeriesFileDTO.points).subscribe(
       data => {
         this.approximationViews
@@ -119,11 +124,6 @@ export class ApproximationPropertiesDetailComponent implements OnInit {
       });
 
     chosenMethod.isUsed = true;
-
-    this.nbColor++;
-    if (this.nbColor > 3) {
-      this.nbColor = 0;
-    }
   }
 
   coefficientsString(coefficients: number[]): string {
