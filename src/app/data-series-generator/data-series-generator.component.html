@@ -128,6 +128,17 @@
           </div>
         </div>
       </div>
+      <div class="col-md-3">
+        <div class="form-group custom-control custom-checkbox">
+          <input type="checkbox"
+                 class="custom-control-input"
+                 name="isNoise"
+                 id="isNoise"
+                 [checked]="generateDataSeriesForm.noise"
+                 [(ngModel)]="generateDataSeriesForm.noise">
+          <label for="isNoise" class="custom-control-label">Noise</label>
+        </div>
+      </div>
     </div>
 
 

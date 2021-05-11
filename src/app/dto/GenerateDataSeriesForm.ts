@@ -5,6 +5,7 @@ export class GenerateDataSeriesForm {
   public numberPoints: number;
   public weightDistribution: string;
   public distanceX: string;
+  public noise: boolean;
 
   constructor() {
   }
