@@ -71,8 +71,8 @@
 
 <div class="col-md-12" *ngIf="chosenMethods">
   <div *ngFor="let approximationView of approximationViews; let i = index">
-    <h3>{{approximationView.method}} (||r||<sub>2</sub><sup>2</sup> = {{approximationView.absoluteError}}, fi<sup>2</sup>={{approximationView.rSquared}}
-      )</h3>
+    <h3>{{approximationView.method}} (||r||<sub>2</sub><sup>2</sup> = {{approximationView.absoluteError}},
+      fi<sup>2</sup>={{approximationView.convergenceCoefficient}})</h3>
     <table class="table table-striped">
       <thead>
       <tr>

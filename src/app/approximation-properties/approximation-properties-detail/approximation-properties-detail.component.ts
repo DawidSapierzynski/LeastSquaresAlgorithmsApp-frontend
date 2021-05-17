@@ -110,7 +110,7 @@ export class ApproximationPropertiesDetailComponent implements OnInit {
     this.approximationPropertiesService.doApproximations(chosenMethod, this.approximationProperties.dataSeriesFileDTO.points).subscribe(
       data => {
         this.approximationViews
-          .push(new ApproximationView(data.mathematicalFunctionDTOs, chosenMethod.leastSquaresMethod, data.absoluteError, data.rsquared));
+          .push(new ApproximationView(data.mathematicalFunctionDTOs, chosenMethod.leastSquaresMethod, data.absoluteError, data.convergenceCoefficient));
         this.datasets.push({
           label: LeastSquaresMethod[chosenMethod.leastSquaresMethod] + ' (' + chosenMethod.degree + ')',
           data: data.points,

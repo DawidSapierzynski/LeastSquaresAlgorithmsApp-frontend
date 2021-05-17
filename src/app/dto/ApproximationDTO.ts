@@ -5,12 +5,12 @@ export class ApproximationDTO {
   public mathematicalFunctionDTOs: MathematicalFunctionDTO[];
   public points: PointXY[];
   public absoluteError: number;
-  public rsquared: number;
+  public convergenceCoefficient: number;
 
-  constructor(mathematicalFunctionDTOs: MathematicalFunctionDTO[], points: PointXY[], absoluteError: number, rSquared: number) {
+  constructor(mathematicalFunctionDTOs: MathematicalFunctionDTO[], points: PointXY[], absoluteError: number, convergenceCoefficient: number) {
     this.mathematicalFunctionDTOs = mathematicalFunctionDTOs;
     this.points = points;
     this.absoluteError = absoluteError;
-    this.rsquared = rSquared;
+    this.convergenceCoefficient = convergenceCoefficient;
   }
 }

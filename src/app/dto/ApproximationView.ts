@@ -5,12 +5,12 @@ export class ApproximationView {
   public mathematicalFunctionDTOs: MathematicalFunctionDTO[];
   public method: LeastSquaresMethod;
   public absoluteError: number;
-  public rSquared: number;
+  public convergenceCoefficient: number;
 
-  constructor(mathematicalFunctionDTOs: MathematicalFunctionDTO[], method: LeastSquaresMethod, absoluteError: number, rSquared: number) {
+  constructor(mathematicalFunctionDTOs: MathematicalFunctionDTO[], method: LeastSquaresMethod, absoluteError: number, convergenceCoefficient: number) {
     this.mathematicalFunctionDTOs = mathematicalFunctionDTOs;
     this.method = LeastSquaresMethod[method];
     this.absoluteError = absoluteError;
-    this.rSquared = rSquared;
+    this.convergenceCoefficient = convergenceCoefficient;
   }
 }
